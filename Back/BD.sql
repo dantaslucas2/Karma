@@ -1,8 +1,9 @@
-CREATE DATABASE karma;
+CREATE DATABASE Karma;
 
-USE karma;
+USE Karma;
 
-CREATE TABLE users (
+
+CREATE TABLE Users (
     id_user INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(50),
@@ -12,7 +13,7 @@ CREATE TABLE users (
     user VARCHAR(100)
 );
 
-CREATE TABLE services (
+CREATE TABLE Services (
     id_service INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     tag VARCHAR(100),
@@ -25,7 +26,7 @@ CREATE TABLE services (
     FOREIGN KEY (id_owner) REFERENCES users(id_user)
 );
 
-CREATE TABLE contracts (
+CREATE TABLE Contracts (
     id_contract INT AUTO_INCREMENT PRIMARY KEY,
     date_begin DATE,
     data_end DATE,
@@ -44,3 +45,4 @@ VALUES ("Limpar Casa", "Limpeza", 50, "Serviços", "Limpeza de casas", 1, "Limpe
 
 INSERT INTO contracts (date_begin, data_end, points, id_service, id_request)
 VALUES ("2018-12-03", "2018-12-04", 50, 1, 1);
+
