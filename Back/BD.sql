@@ -43,9 +43,4 @@ INSERT INTO services (title, tag, points, category, description, status, type_se
 VALUES ("Limpar Casa", "Limpeza", 50, "Serviços", "Limpeza de casas", 1, "Limpeza", 1);
 
 INSERT INTO contracts (date_begin, data_end, points, id_service, id_request)
-<<<<<<< HEAD
 VALUES ("2018-12-03", "2018-12-04", 50, 1, 1);
-=======
-VALUES ("2018-12-03", "2018-12-04", 50, 1, 1);
-
->>>>>>> 8e60bb9feef4226eb2895de20b21bc05bf729863
