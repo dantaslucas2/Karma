@@ -1,6 +1,6 @@
 CREATE DATABASE Karma;
 
-USE Karma;
+USE karmaschema;
 
 CREATE TABLE Users (
     id_user INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
