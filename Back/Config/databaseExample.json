@@ -1,0 +1,10 @@
+﻿{
+  "host": "",
+  "port": "",
+  "user": "",
+  "debug": "",
+  "password": "",
+  "database": "",
+  "connectionLimit": 30,
+  "multipleStatements": true
+}
