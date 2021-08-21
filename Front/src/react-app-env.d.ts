@@ -8,6 +8,7 @@ interface IPropSection {
 interface IPropCard {
     title: string,
     description: string
+    creationDate: Date
 }
 
 interface IPropButton {
