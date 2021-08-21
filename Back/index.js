@@ -23,4 +23,4 @@ app.get('/', (req, res) => {
     }
 });
 
-app.use('/', appRoutes)
+app.use('/api/', appRoutes)

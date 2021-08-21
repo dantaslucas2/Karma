@@ -1,8 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter } from "react-router-dom";
+/* import logo from './logo.svg'; */
 import './App.css';
+import MainRouter from "./MainRouter.js";
 
-function App() {
+
+const App = () => (
+  <BrowserRouter>
+    <MainRouter />
+  </BrowserRouter>
+)
+
+
+/* function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +31,6 @@ function App() {
       </header>
     </div>
   );
-}
+} */
 
 export default App;
