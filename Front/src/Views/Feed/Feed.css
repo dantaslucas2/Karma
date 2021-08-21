@@ -1,0 +1,26 @@
+.FeedSections {
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+
+@media screen and (max-width: 960px) {
+  .FeedSections {
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    max-width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
