@@ -1,11 +1,13 @@
 ﻿import React from "react";
 import {Route, Switch} from "react-router-dom";
 import Home from "./Views/Home/Home";
+import Feed from "./Views/Feed/Feed";
 
 const MainRouter = () => (
     <div>
         <Switch>
             <Route exact path="/" component={Home}></Route>
+            <Route exact path="/feed" component={Feed}></Route>
 {/*             <PrivateRoute exact path="/admin" component={Admin} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
             <Route exact path="/reset-password/:resetPasswordToken" component={ResetPassword} />
