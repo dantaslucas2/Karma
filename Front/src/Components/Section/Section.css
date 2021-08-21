@@ -1,0 +1,71 @@
+.Section {
+  width: 100%;
+  height: auto;
+}
+
+.SectionTitle {
+  font-size: 2.2rem;
+  padding-left: 40px;
+  display: flex;
+}
+
+.CardList {
+  align-items: center;
+  height: auto;
+  width: 100%;
+}
+
+.CardList ul {
+  display:flex;
+  list-style-type: none;
+  margin: 5px 20px;
+  transition: transform 300ms ease 100ms; 
+  padding: 0px;
+  width: 100vh;
+  height: auto;
+}
+
+.CardList ul li {
+  display: flex;
+  padding: 0px 0px 0px 20px;
+}
+
+
+@media screen and (max-width: 960px) {
+  .Section {
+    background-color:green;
+    width: 100%;
+    height: auto;
+  }
+  
+  .SectionTitle {
+    background-color:red;
+    font-size: 2.2rem;
+    padding-left: 40px;
+    display: flex;
+  }
+  
+  .CardList {
+    background-color:pink;
+    display: flex;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+  }
+  
+  .CardList ul {
+    display:flex;
+    list-style-type: none;
+    margin: 5px 20px;
+    transition: transform 300ms ease 100ms; 
+    padding: 0px;
+    width: 100vh;
+    height: auto;
+    padding-inline-start: 0px;
+  }
+  
+  .CardList ul li {
+    display: flex;
+    padding: 0px 0px 0px 20px;
+  }
+}
