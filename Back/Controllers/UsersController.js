@@ -15,8 +15,10 @@ exports.findAll = function(req, res) {
 exports.create = function(req, res) {
     const new_user = new Users(req.body);
     //handles null error
-    if(req.body.constructor === Object && Object.keys(req.body).length === 0){
-        res.status(400).send({ error:true, message: 'Please provide all required field' });
+    if(req.body.constructor === Object && (Object.keys(req.body).length!= req.body.constructor.length) && Object.keys(req.body).length===0){
+        res.status(400).send({ 
+            campos:req,
+            error:true, message: 'Please provide all required field' });
     }else{
         Users.create(new_user, function(err, user) {
             if (err)
@@ -48,6 +50,7 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
+    console.log(req)
     Users.delete( req.params.id, function(err, user) {
         if (err){
             res.send(err);

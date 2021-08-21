@@ -1,3 +1,7 @@
-.Card {
-    background-color:red;
+.Button {
+    background-color: #F5771C;
+}
+
+.Button:active{
+    background-color:yellow;
 }

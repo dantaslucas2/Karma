@@ -9,13 +9,14 @@ var Users = function(users){
   this.password       = users.password;
   this.name           = users.name;
   this.email          = users.email;
-  this.instituicion   = users.instituicion;
+  this.institution   = users.institution;
   this.points         = users.points;
-  this.instituicion   = users.instituicion;
 };
 
+/* (name, email, points, institution, password, user) VALUES (?,?,?,?,?,?)",newUser.name, newUser.email, newUser.points,newUser.institution, newUser.password, newUser.user */
+
 Users.create = function (newUser, result) {
-    dbConn.query("INSERT INTO users set ?", newUser, function (err, res) {
+    dbConn.query("INSERT INTO Users set ?", newUser, function (err, res) {
         if(err) {
             console.log("error: ", err);
             result(err, null);
@@ -46,14 +47,14 @@ Users.findAll = function (result) {
             result(null, err);
         }
         else{
-            console.log('employees : ', res);
+            console.log('users : ', res);
             result(null, res);
         }
     });
 };
 
 Users.delete = function(id, result){
-    dbConn.query("DELETE FROM Users WHERE id_user = ?", [id], function (err, res) {
+    dbConn.query("DELETE FROM Users WHERE id_user = ?", parseInt(id), function (err, res) {
         if(err) {
             console.log("error: ", err);
             result(null, err);

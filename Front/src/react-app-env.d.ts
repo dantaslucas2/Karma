@@ -9,3 +9,8 @@ interface IPropCard {
     title: string,
     description: string
 }
+
+interface IPropButton {
+    label: string,
+    url: string
+}

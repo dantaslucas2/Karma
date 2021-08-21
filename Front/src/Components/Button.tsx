@@ -1,22 +1,12 @@
 ﻿import * as React from 'react';
 import { useState, useEffect } from 'react';
-import './Card.css'
+import './Button.css'
 
-const Card = (props: IPropCard) => {
+const Button = (props: IPropButton) => {
 
-    const category = props
-
-  
     return (
-        <div className="Card">
-            <div className="CardHead">
-                <h1>{props.title}</h1>
-            </div>
-            <div className="CardBody">
-                <h2>{props.description}</h2>
-            </div>
-        </div>
+        <button className='button'>{props.label}</button>
   );
 }
 
-export default Card;
+export default Button;
