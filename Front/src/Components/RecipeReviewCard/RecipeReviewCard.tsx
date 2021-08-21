@@ -9,6 +9,7 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import './RecipeReviewCard.css'
 
 const MAX_LENGTH_DESCTIPTION = 140
 
@@ -24,35 +25,37 @@ export default function RecipeReviewCard(props: IPropCard) {
   const card = props
 
   return (
-    <Card sx={{ width: 270, maxHeight: 260 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+    <div className='CardMaterial'>
+      <Card sx={{ width: 270, maxHeight: 260 }} >
+        <CardHeader
+          avatar={
+            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              R
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={card.title}
+          subheader={card.creationDate.toLocaleString("pt-BR")}
+        />
+      
+        <CardContent sx={{maxHeight: 100, height: 100}}>
+          <Typography variant="body2" color="text.secondary">
+            {compressMaxLength(card.description)}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
           </IconButton>
-        }
-        title={card.title}
-        subheader={card.creationDate.toLocaleString("pt-BR")}
-      />
-     
-      <CardContent sx={{maxHeight: 100, height: 100}}>
-        <Typography variant="body2" color="text.secondary">
-          {compressMaxLength(card.description)}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </div>
   );
 }

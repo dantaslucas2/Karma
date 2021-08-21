@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Section from '../../Components/Section/Section';
 import Navbar from '../../Components/Navbar/Navbar';
 import './Feed.css';
+import "@fontsource/open-sans"
 
 const MockCategories: Array<IPropSection> = [
   {
