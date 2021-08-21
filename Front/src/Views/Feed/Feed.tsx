@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import './Feed.css';
 import Section from '../../Components/Section/Section';
 import Navbar from '../../Components/Navbar/Navbar';
+import './Feed.css';
 
 const MockCategories: Array<IPropSection> = [
   {

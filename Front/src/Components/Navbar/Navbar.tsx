@@ -1,10 +1,10 @@
-import { Component, useState }from 'react';
+import { Component }from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
-import logo from '../../Assets/images/logo.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 import { IoPersonCircleSharp } from "react-icons/io5";
+import logo from '../../Assets/images/logo.png';
+import './Navbar.css';
 
 class Navbar extends Component<{}, { click: boolean, button: boolean}> {
 

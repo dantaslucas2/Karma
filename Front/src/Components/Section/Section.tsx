@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import './Section.css';
 import Card from '../Card/Card';
+import './Section.css';
 
 class Section extends Component<IPropSection> {
 
