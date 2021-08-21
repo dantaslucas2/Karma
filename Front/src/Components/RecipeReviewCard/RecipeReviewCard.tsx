@@ -10,7 +10,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const MAX_LENGTH_DESCTIPTION = 255
+const MAX_LENGTH_DESCTIPTION = 140
 
 const compressMaxLength = (description: string) => {
   if (description.length > MAX_LENGTH_DESCTIPTION) {
@@ -24,7 +24,7 @@ export default function RecipeReviewCard(props: IPropCard) {
   const card = props
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 270, maxHeight: 260 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -40,7 +40,7 @@ export default function RecipeReviewCard(props: IPropCard) {
         subheader={card.creationDate.toLocaleString("pt-BR")}
       />
      
-      <CardContent>
+      <CardContent sx={{maxHeight: 100, height: 100}}>
         <Typography variant="body2" color="text.secondary">
           {compressMaxLength(card.description)}
         </Typography>
