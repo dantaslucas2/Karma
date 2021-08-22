@@ -4,12 +4,16 @@
 }
 
 .SectionTitle {
-  color: #c7611db8;
+  color: #fff;
   font-weight: bold;
-  font-size: 2.0rem;
+  font-size: 1.6rem;
   padding-left: 40px;
   display: flex;
-  text-shadow: 0px 0px 40px #a5a5a5;
+  background: hsla(38, 81%, 52%, 1);
+  background: linear-gradient(90deg, hsla(38, 81%, 52%, 1) 0%, hsla(24, 99%, 68%, 1) 100%);
+  background: -moz-linear-gradient(90deg, hsla(38, 81%, 52%, 1) 0%, hsla(24, 99%, 68%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, hsla(38, 81%, 52%, 1) 0%, hsla(24, 99%, 68%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E89D1F", endColorstr="#FE9E5F", GradientType=1 );
 }
 
 .CardList {
@@ -22,10 +26,10 @@
   display:flex;
   list-style-type: none;
   margin: 5px 20px;
-  transition: transform 300ms ease 100ms; 
   padding: 0px;
   width: 100vh;
   height: auto;
+  transition: transform 300ms ease 100ms; 
 }
 
 .CardList ul li {
@@ -36,20 +40,17 @@
 
 @media screen and (max-width: 960px) {
   .Section {
-    background-color:green;
     width: 100%;
     height: auto;
   }
   
   .SectionTitle {
-    background-color:red;
     font-size: 2.2rem;
     padding-left: 40px;
     display: flex;
   }
   
   .CardList {
-    background-color:pink;
     display: flex;
     align-items: center;
     height: 20vh;

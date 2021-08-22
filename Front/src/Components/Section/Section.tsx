@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Card from '../Card/Card';
+import Car from '../../Components/Carousel/Carousel'
 import './Section.css';
 
 class Section extends Component<IPropSection> {
@@ -13,11 +14,7 @@ class Section extends Component<IPropSection> {
         <div className="SectionTitle">
           <p>{category.title}</p>
         </div>
-        <div className="CardList">
-          <ul>
-            {cards}
-          </ul>
-         </div>
+        <Car {...category} />
       </div>
     );
   }
