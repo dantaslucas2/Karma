@@ -9,6 +9,7 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import AddIcon from '@material-ui/icons/Add';
 import './RecipeReviewCard.css'
 
 const MAX_LENGTH_DESCTIPTION = 140
@@ -53,6 +54,9 @@ export default function RecipeReviewCard(props: IPropCard) {
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
+          </IconButton>
+          <IconButton aria-label="see more">
+            <AddIcon />
           </IconButton>
         </CardActions>
       </Card>

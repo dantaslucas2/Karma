@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import './Card.css'
 import RecipeReviewCard from '../RecipeReviewCard/RecipeReviewCard'
+import './Card.css'
 
 class Card extends Component<IPropCard> {
 
