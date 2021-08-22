@@ -7,7 +7,7 @@ class Login extends Component {
       return (
             <div>               
               <div className="ButtonsHome">
-                <Redirect label="Entrar" url="/Entrar"/>              
+                <Redirect label="Entrar" url="/Feed"/>              
               </div>
             </div>
     );
