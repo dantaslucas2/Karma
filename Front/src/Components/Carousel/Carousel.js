@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import cx from 'classnames'
 import NonPassiveTouchTarget from './NonPassiveTouchTarget'
-import TouchCarousel, { clamp } from '../../carousel'
+import TouchCarousel, { clamp } from '.'
 import touchWithMouseHOC from './touchWithMouseHOC'
 import Card from '../Card/Card'
 
