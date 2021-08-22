@@ -20,8 +20,10 @@ class Logo extends Component<IPropLogo> {
         },
         rowLogotipo:{
           flex: 1,
-          width:"100vw",
-          alignItems: "center"
+          alignItems: "center",
+          display: "flex",
+          width: "100%",
+          height: logoInfo.heigth,
         }
       });
       

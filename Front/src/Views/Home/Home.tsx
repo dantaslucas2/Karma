@@ -37,7 +37,7 @@ class Home extends Component<any,any>{
                     />
                     )}
                 </Slider>
-                <div className="Buttons">
+                <div className="ButtonsHome">
                         <Redirect label="Login" url="/Login"/>
                         <Redirect label="Cadastre-se" url="/cadastre-se"/>
                 </div>

@@ -4,6 +4,11 @@
     max-width: 160px;
     max-height: 120px;
     }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+
 }
 
 body{
@@ -20,8 +25,10 @@ body{
     background-size: 'cover';
     background-image: url(../../Assets/images/background.png);
     background-color: currentcolor;
-    display: flex;
+    display: block;
     flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .img {
@@ -29,3 +36,10 @@ body{
     max-height: 120px;
 }
 
+.ButtonsHome{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;  
+}

@@ -6,11 +6,12 @@
     transition: 0.5s;
     background-size: 200% auto;
     color: white;            
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
+    border-radius: 20px;
     display: block;
-    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
+    background-image: radial-gradient(circle at 8.62% 8.62%, #ffbc59 0, #ffac4f 16.67%, #f99742 33.33%, #ed7d31 50%, #e06223 66.67%, #d7491e 83.33%, #d23120 100%);
     text-decoration: none;
+    width: 15%;
+    height: 4vh;
 }
 
 .Link-golden:hover {
