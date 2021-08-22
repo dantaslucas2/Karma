@@ -82,6 +82,11 @@
     position: relative;
   }
 
+  .container {
+    padding-right: 2em;
+    padding-left: 2em;
+  }
+
   .container ul {
     padding-inline-start: 0px;
   }
