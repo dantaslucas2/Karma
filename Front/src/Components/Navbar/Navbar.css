@@ -22,8 +22,8 @@
   max-width: 90em;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 10em;
+  padding-left: 10em;
 }
 
 .navbar-logo {
@@ -47,6 +47,7 @@
   justify-content: center;
   list-style: none;
   text-align: center;
+  padding-inline-start: 0;
 }
 
 .nav-item {
