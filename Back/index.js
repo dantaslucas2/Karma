@@ -29,6 +29,7 @@ app.get("/users", (req, res) => {
 });
 
 app.get("/user/:user", (req, res) => {
+  console.log("------------------------");
   if (user == undefined) {
     res.sendStatus(400);
   } else {
