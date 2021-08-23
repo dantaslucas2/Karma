@@ -1,1 +1,45 @@
-﻿
+﻿@media screen and (max-width: 960px){
+      
+    .image {
+    max-width: 160px;
+    max-height: 120px;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.BodyHome {
+    font-family: sans-serif;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background: round;
+    background-size: 'cover';
+    background-image: url(../../Assets/images/background.png);
+    background-color: currentcolor;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.img {
+    max-width: 160px;
+    max-height: 120px;
+}
+
+.ButtonsHome{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;  
+}

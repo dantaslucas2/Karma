@@ -8,9 +8,20 @@ interface IPropSection {
 interface IPropCard {
     title: string,
     description: string
+    creationDate: Date
 }
 
-interface IPropButton {
+interface IPropRedirect {
     label: string,
     url: string
+}
+
+interface IPropImageHome {
+    id: string,
+    image: string
+}
+
+interface IPropLogo {
+    heigth: string,
+    width: string
 }

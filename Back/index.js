@@ -321,6 +321,6 @@ app.delete("/contract/:id", (req, res) => {
   }
 });
 
-app.listen(45678, () => {
+app.listen(8000, () => {
   console.log("API RODANDO!");
 });
