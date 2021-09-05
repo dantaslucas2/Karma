@@ -25,3 +25,8 @@ interface IPropLogo {
     heigth: string,
     width: string
 }
+
+type Slide = {
+  id: string;
+  image: string;
+};
