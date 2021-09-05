@@ -2,7 +2,7 @@
 import Home from "./Views/Home/Home";
 import Feed from "./Views/Feed/Feed";
 import Login from "./Views/Login/Login";
-import Registry from "./Views/Registry/Registry";
+import Registry from "./Views/Register/Register";
 
 const MainRouter = () => (
     <div>
