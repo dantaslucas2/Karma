@@ -1,8 +1,8 @@
 ﻿import * as React from 'react';
-import { Component } from 'react'
-;
+import { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import './Redirect.css'
-import {Link} from 'react-router-dom';
 
 class Redirect extends Component<IPropRedirect>{
 
@@ -10,12 +10,13 @@ class Redirect extends Component<IPropRedirect>{
     const redirectInfo = this.props
 
     return (
-      <Link className="Link-golden" to={redirectInfo.url}>
-        {redirectInfo.label}
-      </Link>      
+      <Link to={redirectInfo.url}>
+        <button className="Link-golden">
+          {redirectInfo.label} 
+        </button>
+      </Link>
     );
   }
-
 }
 
 export default Redirect;

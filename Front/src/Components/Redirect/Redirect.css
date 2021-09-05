@@ -1,22 +1,16 @@
 .Link-golden {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    border-radius: 20px;
-    display: block;
-    background-image: radial-gradient(circle at 8.62% 8.62%, #ffbc59 0, #ffac4f 16.67%, #f99742 33.33%, #ed7d31 50%, #e06223 66.67%, #d7491e 83.33%, #d23120 100%);
-    text-decoration: none;
-    width: 15%;
-    height: 4vh;
+  font-family: "Lato";
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  background: #d5850d;
+  color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px #d5d5d5;
+  border: 0;
+  cursor: pointer;
+  transition: all .3s ease;
+  margin: 10px 10px 10px 10px;
+  width: 20em;
 }
-
-.Link-golden:hover {
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-}
-         

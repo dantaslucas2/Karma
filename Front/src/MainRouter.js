@@ -2,7 +2,7 @@
 import Home from "./Views/Home/Home";
 import Feed from "./Views/Feed/Feed";
 import Login from "./Views/Login/Login";
-import Registry from "./Views/Register/Register";
+import Register from "./Views/Register/Register";
 
 const MainRouter = () => (
     <div>
@@ -10,7 +10,7 @@ const MainRouter = () => (
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/feed" component={Feed}></Route>
             <Route exact path="/login" component={Login}></Route>
-            <Route exact path="/cadastre-se" component={Registry}></Route>
+            <Route exact path="/register" component={Register}></Route>
             {/*
             <PrivateRoute exact path="/admin" component={Admin} />
             <Route exact path="/forgot-password" component={ForgotPassword} />

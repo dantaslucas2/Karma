@@ -1,16 +1,27 @@
 ﻿import { Component } from 'react';
-import Redirect from '../../Components/Redirect/Redirect';
+import Navbar from '../../Components/Navbar/Navbar';
+import LoginForm from '../../Components/LoginForm/FormLogin';
+
+import './Login.css';
+import '../../Components/Container/Container.css';
+import "@fontsource/lato";
 
 class Login extends Component {
   render(){
     return (
-      <div>
-        <div className="ButtonsHome">
-          <Redirect label="Entrar" url="/Feed"/>
+      <>
+        <Navbar />
+        <div className='Login'>  
+          <div className="Container">
+            <div className='Login'>
+              <LoginForm />
+            </div>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
+  
 }
 
 export default Login;

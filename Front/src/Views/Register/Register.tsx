@@ -1,11 +1,11 @@
 ﻿import { Component } from 'react';
 
-class Login extends Component {
+class Register extends Component {
   render(){
     return (
-      <div>login</div>
+      <div>Register</div>
     );
   }
 }
 
-export default Login;
+export default Register;

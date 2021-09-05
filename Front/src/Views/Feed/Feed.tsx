@@ -4,6 +4,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 import MockCategories from '../../data/Mock';
 
 import './Feed.css';
+import '../../Components/Container/Container.css'
 import "@fontsource/lato"
 
 class Feed extends Component {
@@ -13,12 +14,14 @@ class Feed extends Component {
     const Sections: any = () => MockCategories.map((category: IPropSection) => <Section {...category} />)
 
     return (
-      <div className="Feed">
+      <>
         <Navbar />
-        <div className="FeedSections">
-          <Sections />
+        <div className='Feed'>  
+          <div className="Container">
+            <Sections />
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
