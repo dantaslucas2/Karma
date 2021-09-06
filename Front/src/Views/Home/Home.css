@@ -138,7 +138,7 @@ button:hover {
 		top: 50%;
 		transform: translateY(-50%);
 		z-index: 10;
-		background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
+		background: url('http://cdn.onlinewebfonts.com/svg/img_98761.png') no-repeat center center / 16px;
 		width: 32px;
 		height: 32px;
 		text-indent: -9999px;
@@ -146,25 +146,17 @@ button:hover {
 }
 
 .previousButton:hover, .nextButton:hover {
-  background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
+  background: url('http://cdn.onlinewebfonts.com/svg/img_98761.png') no-repeat center center / 16px;
 }
 
 .previousButton {
-  left: 0;
+  left: 10px;
   -webkit-transform: rotate(180deg) translateY(calc(50% + 0px));
           transform: rotate(180deg) translateY(calc(50% + 0px));
 }
 
-.previousButton:hover {
-  left: -10px;
-}
-
 .nextButton {
-  right: 0;
-}
-
-.nextButton:hover {
-  right: -10px;
+  right: 10px;
 }
 
 .slider-content {
