@@ -2,7 +2,7 @@
 
 ## Endpoints
 
-### GET /users
+### GET /api/users
 
 Retorna A listagem de todos os usuarios cadastrados
 
@@ -44,13 +44,13 @@ Exemplo de resposta:
 ]
 ```
 
-### GET /user/{user}
+### GET /api/user/{user}
 
 Retorna o usuario com o user passado
 
 #### Parametros
 
-Nenhum
+user
 
 #### Respostas
 
@@ -59,7 +59,7 @@ Nenhum
 Ocorreu tudo como esperado
 Exemplo de resposta:
 
-### POST /users
+### POST /api/users
 
 Cria um usuário
 
