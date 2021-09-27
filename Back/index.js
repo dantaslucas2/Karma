@@ -3,8 +3,12 @@ const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 const Users = require("./database/models/Users");
+const Tags = require("./database/models/Tags");
 const Services = require("./database/models/Services");
 const Contracts = require("./database/models/Contracts");
+const Tags_services = require("./database/models/Tags_services");
+//const queryUser = require("./controllers/user");
+const { Op } = require("sequelize");
 
 connection
   .authenticate()
@@ -19,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //----------------------Crud Usuarios-----------------------
-app.get("/users", (req, res) => {
+app.get("/api/users", (req, res) => {
   Users.findAll({ raw: true }).then((usuarios) => {
     console.log(usuarios);
 
@@ -28,27 +32,30 @@ app.get("/users", (req, res) => {
   res.statusCode = 200;
 });
 
-app.get("/user/:user", (req, res) => {
+app.get("/api/user/:user", (req, res) => {
+  var userReq = req.params.user;
   console.log("------------------------");
-  if (user == undefined) {
+  if (userReq == undefined) {
     res.sendStatus(400);
   } else {
-    Users.findOne({
+    Users.findAll({
       where: {
-        user: user,
+        user: { [Op.substring]: userReq }, //userReq + "%",
       },
-    }).then((resposta) => {});
-
-    if (user != undefined) {
-      res.send(user);
-      res.sendStatus(200);
-    } else {
-      res.sendStatus(404);
-    }
+    }).then((resposta) => {
+      if (resposta != undefined) {
+        console.log("////////////");
+        res.json(resposta);
+        res.sendStatus(200);
+      } else {
+        console.log("++++++++++++++++");
+        res.sendStatus(404);
+      }
+    });
   }
 });
 
-app.post("/user", (req, res) => {
+app.post("/api/user", (req, res) => {
   var { name, email, points, institution, password, user } = req.body;
   console.log("**************************************************");
   var data = new Date();
@@ -78,6 +85,7 @@ app.post("/user", (req, res) => {
     }).then((resposta) => {
       if (resposta != undefined) {
         //Ja existe esse user
+        console.log("ja existe esse usuario");
         res.sendStatus(400);
       } else {
         // nao existe o user
@@ -112,11 +120,11 @@ app.post("/user", (req, res) => {
   }
 });
 
-app.delete("/user/:id", (req, res) => {});
+app.delete("/api/user/:id", (req, res) => {});
 
 //----------------------Crud Services-----------------------
 
-app.get("/services", (req, res) => {
+app.get("/api/services", (req, res) => {
   Services.findAll({ raw: true }).then((services) => {
     console.log(services);
 
@@ -125,7 +133,30 @@ app.get("/services", (req, res) => {
   res.statusCode = 200;
 });
 
-app.get("/service/:id", (req, res) => {
+app.get("/api/service_tag/:tag", (req, res) => {
+  var tagReq = req.params.tag;
+  console.log("------------tag---------");
+  if (tagReq == undefined) {
+    res.sendStatus(400);
+  } else {
+    Services.findAll({
+      where: {
+        tag: { [Op.substring]: tagReq },
+      },
+    }).then((resposta) => {
+      if (resposta != undefined) {
+        console.log("////////////");
+        res.json(resposta);
+        res.sendStatus(200);
+      } else {
+        console.log("++++++++++++++++");
+        res.sendStatus(404);
+      }
+    });
+  }
+});
+
+app.get("/api/service_id/:id", (req, res) => {
   if (isNaN(req.params.id)) {
     res.sendStatus(400);
   } else {
@@ -142,7 +173,7 @@ app.get("/service/:id", (req, res) => {
   }
 });
 
-app.post("/service", (req, res) => {
+app.post("/api/service", (req, res) => {
   var {
     title,
     tag,
@@ -209,7 +240,7 @@ app.post("/service", (req, res) => {
   }
 });
 
-app.delete("/service/:id", (req, res) => {
+app.delete("/api/service/:id", (req, res) => {
   if (isNaN(req.params.id)) {
     res.sendStatus(400);
   } else {
@@ -226,9 +257,90 @@ app.delete("/service/:id", (req, res) => {
   }
 });
 
+//----------------------Crud tags-----------------------
+app.get("/api/tags", (req, res) => {
+  Tags.findAll({ raw: true }).then((tags) => {
+    console.log(tags);
+    res.json(tags);
+  });
+  res.statusCode = 200;
+});
+
+app.get("/api/user/:tag", (req, res) => {
+  var userReq = req.params.user;
+  console.log("------------------------");
+  if (userReq == undefined) {
+    res.sendStatus(400);
+  } else {
+    Tags.findAll({
+      where: {
+        user: { [Op.substring]: userReq }, //userReq + "%",
+      },
+    }).then((resposta) => {
+      if (resposta != undefined) {
+        console.log("////////////");
+        res.json(resposta);
+        res.sendStatus(200);
+      } else {
+        console.log("++++++++++++++++");
+        res.sendStatus(404);
+      }
+    });
+  }
+});
+
+app.post("/api/tag", (req, res) => {
+  var nametag = req.body;
+  console.log("**************************************************");
+  var data = new Date();
+  console.log("data: ", data);
+  console.log("nametag: ", nametag);
+  if (nametag == undefined) {
+    // console.log("name", nametag);
+    console.log("json errado");
+    res.sendStatus(400);
+  } else {
+    Tags.findOne({
+      where: {
+        name: nametag,
+      },
+    })
+      .then((resposta) => {
+        if (resposta != undefined) {
+          //Ja existe essa tag
+          res.sendStatus(400);
+        } else {
+          // nao existe a tag
+          Tags.create({
+            name: nametag,
+            createdAt: data,
+            updatedAt: data,
+          })
+            .then(() => {
+              console.log("nametag ", nametag);
+              console.log("createdAt", data);
+              console.log("updatedAt", data);
+              console.log("tag salvo");
+              res.sendStatus(200);
+            })
+            .catch(() => {
+              console.log("Erro ao salvar o tag");
+              res.sendStatus(500);
+            });
+        }
+      })
+      .catch(() => {
+        console.log("Erro no where");
+        res.sendStatus(500);
+      });
+  }
+});
+
+app.delete("/api/user/:tags", (req, res) => {});
+
 //----------------------Crud Contracts-----------------------
 
-app.get("/contracts", (req, res) => {
+app.get("/api/contracts", (req, res) => {
   Contracts.findAll({ raw: true }).then((contracts) => {
     console.log(contracts);
 
@@ -237,7 +349,7 @@ app.get("/contracts", (req, res) => {
   res.statusCode = 200;
 });
 
-app.get("/contract/:id", (req, res) => {
+app.get("/api/contract/:id", (req, res) => {
   if (isNaN(req.params.id)) {
     res.sendStatus(400);
   } else {
@@ -254,7 +366,7 @@ app.get("/contract/:id", (req, res) => {
   }
 });
 
-app.post("/contract", (req, res) => {
+app.post("/api/contract", (req, res) => {
   var { id_contract, date_begin, date_end, points, id_service, id_request } =
     req.body;
   console.log("##############################################");
@@ -305,7 +417,7 @@ app.post("/contract", (req, res) => {
   }
 });
 
-app.delete("/contract/:id", (req, res) => {
+app.delete("/api/contract/:id", (req, res) => {
   if (isNaN(req.params.id)) {
     res.sendStatus(400);
   } else {
@@ -322,6 +434,6 @@ app.delete("/contract/:id", (req, res) => {
   }
 });
 
-app.listen(8000, () => {
+app.listen(45678, () => {
   console.log("API RODANDO!");
 });
