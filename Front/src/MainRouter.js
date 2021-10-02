@@ -3,6 +3,8 @@ import Home from "./Views/Home/Home";
 import Feed from "./Views/Feed/Feed";
 import Login from "./Views/Login/Login";
 import Register from "./Views/Register/Register";
+import Card from "./Views/Card/Card";
+import NewCard from "./Views/NewCard/NewCard";
 
 const MainRouter = () => (
     <div>
@@ -11,6 +13,8 @@ const MainRouter = () => (
             <Route exact path="/feed" component={Feed}></Route>
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
+            <Route exact path="/card" component={Card}></Route>
+            <Route exact path="/new-card" component={NewCard}></Route>
             {/*
             <PrivateRoute exact path="/admin" component={Admin} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
