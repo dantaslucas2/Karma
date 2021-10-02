@@ -1,0 +1,80 @@
+﻿//----------------------Crud tags-----------------------
+app.get("/api/tags", (req, res) => {
+    Tags.findAll({ raw: true }).then((tags) => {
+      console.log(tags);
+      res.json(tags);
+    });
+    res.statusCode = 200;
+  });
+  
+  app.get("/api/user/:tag", (req, res) => {
+    var userReq = req.params.user;
+    console.log("------------------------");
+    if (userReq == undefined) {
+      res.sendStatus(400);
+    } else {
+      Tags.findAll({
+        where: {
+          user: { [Op.substring]: userReq }, //userReq + "%",
+        },
+      }).then((resposta) => {
+        if (resposta != undefined) {
+          console.log("////////////");
+          res.json(resposta);
+          res.sendStatus(200);
+        } else {
+          console.log("++++++++++++++++");
+          res.sendStatus(404);
+        }
+      });
+    }
+  });
+  
+  app.post("/api/tag", (req, res) => {
+    var nametag = req.body;
+    console.log("**************************************************");
+    var data = new Date();
+    console.log("data: ", data);
+    console.log("nametag: ", nametag);
+    if (nametag == undefined) {
+      // console.log("name", nametag);
+      console.log("json errado");
+      res.sendStatus(400);
+    } else {
+      Tags.findOne({
+        where: {
+          name: nametag,
+        },
+      })
+        .then((resposta) => {
+          if (resposta != undefined) {
+            //Ja existe essa tag
+            res.sendStatus(400);
+          } else {
+            // nao existe a tag
+            Tags.create({
+              name: nametag,
+              createdAt: data,
+              updatedAt: data,
+            })
+              .then(() => {
+                console.log("nametag ", nametag);
+                console.log("createdAt", data);
+                console.log("updatedAt", data);
+                console.log("tag salvo");
+                res.sendStatus(200);
+              })
+              .catch(() => {
+                console.log("Erro ao salvar o tag");
+                res.sendStatus(500);
+              });
+          }
+        })
+        .catch(() => {
+          console.log("Erro no where");
+          res.sendStatus(500);
+        });
+    }
+  });
+  
+  app.delete("/api/user/:tags", (req, res) => {});

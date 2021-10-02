@@ -4,12 +4,21 @@
 
 
 const UserController = {
-    getUser() {
-        return axios.get("http://localhost:4000/api/user");
+    getlistUser() {
+        return axios.get("http://localhost:4000/api/users");
     },
-    postUser(NewUser){
+    getindexUser(idUser) {
+        return axios.get(`http://localhost:4000/api/user/${idUser}`);
+    },    
+    postcreateUser(NewUser){
         return axios.post("http://localhost:4000/api/user", NewUser);
     },
+    postupdateUser(upUser){
+        return axios.post("http://localhost:4000/api/user", upUser);
+    },
+    deleteUser(idUser){
+        return axios.delete(`http://localhost:4000/api/user/${idUser}`);
+    }
 };
 
 export default UserController;
