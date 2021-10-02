@@ -1,15 +1,16 @@
 const Users = require("../database/models/Users");
+const bcrypt = require('bcryptjs');
 
 
 async function createUsers(req, res){
-
+  
   var {name, email, points, institution, password, user} = req.body;
   var data = new Date();
   
   if ((name == undefined && email == undefined && points == undefined && institution == undefined && password == undefined && user == undefined) || user == undefined) {
 
     console.log("json errado");
-    res.sendStatus(400);
+    res.status(400).send("Dados Preenchidos Incorretamente");
 
   } else {
     Users.findOne({
@@ -21,11 +22,22 @@ async function createUsers(req, res){
       if (resposta != undefined) {
         //Ja existe esse user
         console.log("ja existe esse usuario");
-        res.sendStatus(400);
+        res.status(400).send("ja existe esse usuario");
       
       } else {
-        // nao existe o user
-        Users.create({
+
+        Users.beforeCreate((user, options) => {
+
+          return bcrypt.hash(user.password, 10)
+              .then(hash => {
+                  user.password = hash;
+              })
+              .catch(err => { 
+                  throw new Error(); 
+              });
+      });
+
+        new_user = {
           name: name,
           email: email,
           points: points,
@@ -34,11 +46,15 @@ async function createUsers(req, res){
           user: user,
           createdAt: data,
           updatedAt: data,
-        })
-          .then(() => {res.sendStatus(200);
+        }
+
+        // nao existe o user
+        Users.create(new_user)
+          .then(() => {
+            res.status(200).send({message: "usuario criado com sucesso", user: new_user});
           })
           .catch(() => {
-            console.log("Erro ao salvar o usuario");
+            res.send("Erro ao salvar o usuario", new_user)
             res.sendStatus(500);
           });
       }
@@ -98,7 +114,7 @@ async function updateUser(req, res) {
         },
       }
     );
-    Users.findByPk(req.params.id).then((result) => res.json(result),res.sendStatus(200));
+    Users.findByPk(req.params.id).then((result) => res.status(200).send({user: result}));
   }
 }
 

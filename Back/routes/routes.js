@@ -2,6 +2,7 @@
 const users = require("../controllers/userController");
 const services = require("../controllers/serviceController");
 const contracts = require("../controllers/contractController");
+const authenticate = require("../controllers/loginController");
 
 const routes = express.Router();
 
@@ -18,12 +19,12 @@ routes.post("/api/service", services.createServices);
 routes.post("/api/service/:id", services.updateService);
 routes.delete("/api/service/:id", services.deleteService);
 
-
 routes.get("/api/contracts", contracts.listContracts);
 routes.get("/api/contract/:id", contracts.indexContract);
 routes.post("/api/contract", contracts.createContracts);
 routes.post("/api/contract/:id", contracts.updateContract);
 routes.delete("/api/contract/:id", contracts.deleteContract);
 
+routes.post("/api/login", authenticate.login);
 
 module.exports = routes;

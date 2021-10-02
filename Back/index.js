@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 const routes = require("./routes/routes")
+var cookieParser = require('cookie-parser');
 
 connection
   .authenticate()
@@ -15,7 +16,7 @@ connection
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(cookieParser());
 app.use(routes);
 
 

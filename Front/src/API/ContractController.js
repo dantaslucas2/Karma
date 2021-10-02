@@ -8,7 +8,7 @@ const ContractController = {
         return axios.get("http://localhost:4000/api/contracts");
     },
     getindexContract(idContract) {
-        return axios.get(`http://localhost:4000/api/user/${idContract}`);
+        return axios.get(`http://localhost:4000/api/contract/${idContract}`);
     },    
     postcreateContract(NewContract){
         return axios.post("http://localhost:4000/api/contract", NewContract);

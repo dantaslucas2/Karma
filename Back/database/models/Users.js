@@ -25,11 +25,11 @@ const user = connection.define("Users", {
   },
   password: {
     type: Sequilize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   user: {
     type: Sequilize.STRING,
-    allowNull: false,
+    allowNull: true,
     unique: true,
   },
 });
