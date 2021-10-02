@@ -1,10 +1,11 @@
-.LoginForm { }
-
 .LoginForm p {
   font-family: "Lato";
-  font-size: 2.5em;
   font-weight: bold;
   color: #d5850d;
+}
+
+.LoginForm .LoginFormTitle {
+  font-size: 2.5em;
 }
 
 .Form {
@@ -26,4 +27,24 @@
   border: 0;
   cursor: pointer;
   transition: all .3s ease;
+}
+
+.OtherOptions {
+  font-size: 1em;
+}
+
+.CreateNewAccount {
+  float: left;
+  text-align: left;
+}
+
+.ForgotPassword {
+  float: right;
+  text-align: right;
+  color: #d5850d;
+}
+
+.ForgotPassword:hover, .CreateNewAccount:hover {
+  color: #694516;
+  text-decoration: underline;
 }
