@@ -1,9 +1,11 @@
-.LoginForm { }
-
-.LoginForm p {
+.RegisterForm p {
   font-family: "Lato";
-  font-size: 2.5em;
   font-weight: bold;
+  color: #d5850d;
+}
+
+.RegisterForm .RegisterFormTitle {
+  font-size: 2.5em;
   color: #d5850d;
 }
 
@@ -13,7 +15,7 @@
   text-align: center;
 }
 
-.LoginButton {
+.RegisterButton {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   font-weight: 600;
   text-transform: uppercase;

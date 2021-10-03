@@ -1,27 +1,26 @@
-﻿import { Component } from 'react';
+import { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
-import LoginForm from '../../Components/LoginForm/LoginForm';
+import NewCardForm from '../../Components/NewCardForm/NewCardForm';
 
-import './Login.css';
+import './NewCard.css';
 import '../../Components/Container/Container.css';
 import "@fontsource/lato";
 
-class Login extends Component {
+class Register extends Component {
   render(){
     return (
       <>
         <Navbar />
-        <div className='Login'>  
+        <div className='NewCard'>
           <div className="Container">
-            <div className='Login'>
-              <LoginForm />
+            <div className='NewCard'>
+              <NewCardForm />
             </div>
           </div>
         </div>
       </>
     );
   }
-  
 }
 
-export default Login;
+export default Register;
