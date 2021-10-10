@@ -4,9 +4,13 @@
 .DetailedCard .Header {
   height: 10em;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
   background-image:
     linear-gradient(transparent, rgba(0, 10, 0, 0.9)),
-    url('https://image.shutterstock.com/image-vector/creative-vector-illustration-math-equation-260nw-1328295644.jpg');
+    url('http://lexinform.com.br/wp-content/uploads/2018/09/UF-RIO-DE-JANEIRO.jpg');
 }
 
 .DetailedCard .Header p {
@@ -64,7 +68,7 @@
     position: relative;
     background-image:
       linear-gradient(transparent, rgba(0, 10, 0, 0.9)),
-      url('https://image.shutterstock.com/image-vector/creative-vector-illustration-math-equation-260nw-1328295644.jpg');
+      url('https://imagens.ebc.com.br/41zOGjY-ZemfGcpZvbaJQm0MsiA=/754x0/smart/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/universidade_federal_do_rio_de_janeiro2805200377.jpg?itok=Tr2ST7Lw');
   }
   
   .DetailedCard .Header p {

@@ -18,7 +18,9 @@ class LoginForm extends Component {
           <TextField sx={formElementStyle} id="outlined-basic" label="Email" variant="outlined" />
           <TextField sx={formElementStyle} id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined" />
           <div className="OtherOptions">
-            <p className="CreateNewAccount">Criar uma conta!</p>
+            <a href="/register">
+              <p className="CreateNewAccount">Criar uma conta!</p>
+            </a>
             <p className="ForgotPassword">Esqueci a senha</p>
           </div>
           <button className="LoginButton" style={formElementStyle} type="submit">

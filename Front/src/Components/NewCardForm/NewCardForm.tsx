@@ -12,10 +12,17 @@ class NewCardForm extends Component {
   render() {
     return (
       <div className="RegisterForm">
-        <p className="RegisterFormTitle">Crie sua conta</p>
+        <p className="RegisterFormTitle">Registre um serviço</p>
         <form className="Form" noValidate autoComplete="off">
           <TextField sx={formElementStyle} id="newcard-form-title" label="Título" variant="outlined" />
-          <TextField sx={formElementStyle} id="newcard-form-description" label="Description" variant="outlined" />
+          <TextField
+            sx={formElementStyle}
+            multiline
+            id="newcard-form-desc"
+            label="Descrição"
+            rows={4}
+          />
+          <TextField sx={formElementStyle} id="newcard-form-category" label="Categoria" variant="outlined" />
           <button className="RegisterButton" style={formElementStyle} type="submit">
             Registrar!
           </button>

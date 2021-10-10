@@ -5,6 +5,7 @@ import Login from "./Views/Login/Login";
 import Register from "./Views/Register/Register";
 import Card from "./Views/Card/Card";
 import NewCard from "./Views/NewCard/NewCard";
+import Profile from "./Views/Profile/Profile";
 
 const MainRouter = () => (
     <div>
@@ -15,6 +16,7 @@ const MainRouter = () => (
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/card" component={Card}></Route>
             <Route exact path="/new-card" component={NewCard}></Route>
+            <Route exact path="/profile" component={Profile}></Route>
             {/*
             <PrivateRoute exact path="/admin" component={Admin} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
