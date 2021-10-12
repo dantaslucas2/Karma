@@ -55,10 +55,7 @@ async function verifyUserLogin(user,password){
 
     if (userAuth || bcrypt.compareSync(userLog.password, userAuth.password)) {
 
-
-      console.log("entrei")
       token = jwt.sign({id:userAuth.id_user,username:userAuth.user,type:'user'},config.secret,{ expiresIn: '2h'})
-      console.log("token", token)
       return {status:'ok',data:token}
       
     } else {
@@ -75,21 +72,16 @@ async function login(req, res){
 
   const {user,password}=req.body;
 
-  console.log(req.body)
-
-
   const response = await verifyUserLogin(user,password);
   const token = response.data
 
-  console.log(response)
 
   if(response.status==='ok'){
-    console.log(token)    
     res.cookie('token',token,{ maxAge: 2 * 60 * 60 * 1000, httpOnly: true });  // maxAge: 2 hours
-    res.redirect("/login");
+    res.status(200).send({message: "Autenticado", data: response});
 
   }else{
-
+    res.status(401).send("Não autorizado")
     res.json(response);
 
   }
@@ -99,7 +91,7 @@ async function login(req, res){
 async function verifyToken(token){
 
   try {
-      const verify = jwt.verify(token,JWT_SECRET);
+      const verify = jwt.verify(token,config.secret);
       if(verify.type==='user'){return true;}
       else{return false};
   } catch (error) {
