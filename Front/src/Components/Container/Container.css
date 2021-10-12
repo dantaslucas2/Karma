@@ -20,7 +20,6 @@
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#FDFDFD", GradientType=1 );
 }
 
-
 @media screen and (max-width: 960px) {
   .Container {
     margin-top: 0px;

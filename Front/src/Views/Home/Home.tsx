@@ -23,13 +23,13 @@ class Home extends Component<any,any>{
   render(){
     const content = [
       {
-        title: "Vulputate Mollis Ultricies Fermentum Parturient",
+        title: "Dou aulas de Python",
         description:
-          "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis.",
-        button: "Read More",
-        image: "https://i.imgur.com/ZXBtVw7.jpg",
-        user: "Luan Gjokaj",
-        userProfile: "https://i.imgur.com/JSW6mEk.png"
+          "Estou curtando o sétimo período de Engenharia da Computação na UFRJ e estou disposto a ajudar os calouros ou ouros estudantes que queiram aprender o básico da linguagem de programação Python.",
+        button: "Quero participar!",
+        image: "https://programadoresbrasil.com.br/wp-content/uploads/2019/10/0_fUJ-vxQtDB0ssLX7-1024x684.jpeg",
+        user: "Amanda Lúcio",
+        userProfile: "https://i.imgur.com/zzMdK2K.png"
       },
       {
         title: "Tortor Dapibus Commodo Aenean Quam",
@@ -67,7 +67,7 @@ class Home extends Component<any,any>{
               <section>
                 <img src={item.userProfile} alt={item.user} />
                 <span>
-                  Posted by <strong>{item.user}</strong>
+                  Postado por <strong>{item.user}</strong>
                 </span>
               </section>
             </div>

@@ -1,19 +1,19 @@
 import { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
-import DetailedCard from '../../Components/DetailedCard/DetailedCard';
+import ProfileBox from '../../Components/ProfileBox/ProfileBox';
 
-import './Card.css';
+import './Profile.css';
 import '../../Components/Container/Container.css';
 import "@fontsource/lato";
 
-class Login extends Component {
+class Profile extends Component {
   render(){
     return (
       <>
         <Navbar />
-        <div className="ViewCard">
+        <div className="Profile">
           <div className="Container">
-            <DetailedCard />
+            <ProfileBox />
           </div>
         </div>
       </>
@@ -21,4 +21,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Profile;
