@@ -5,6 +5,57 @@
   text-align: center;
 }
 
+.LoginForm p {
+  font-family: "Lato";
+  font-weight: bold;
+  color: #d5850d;
+}
+
+.LoginForm .LoginFormTitle {
+  font-size: 2.5em;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.LoginButton {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .75em;
+  letter-spacing: 1px;
+  background: #d5850d;
+  color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px #d5d5d5;
+  border: 0;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.OtherOptions {
+  font-size: 1em;
+}
+
+.CreateNewAccount {
+  float: left;
+  text-align: left;
+}
+
+.ForgotPassword {
+  float: right;
+  text-align: right;
+  color: #d5850d;
+}
+
+.ForgotPassword:hover, .CreateNewAccount:hover {
+  color: #694516;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 960px) {
   .Login {
     margin: 0px 0px 0px 0px;

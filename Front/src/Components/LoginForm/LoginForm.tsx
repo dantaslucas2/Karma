@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 
 import './LoginForm.css';
 import "@fontsource/lato";
+import { Email } from '@material-ui/icons';
 
 const formElementStyle: object = {
   margin: '15px 0px 0px 0px'

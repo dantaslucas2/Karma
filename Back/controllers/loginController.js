@@ -36,6 +36,7 @@ async function authenticate(req, res) {
   }
 }
 
+
 async function verifyUserLogin(user,password){
 
 
@@ -53,18 +54,17 @@ async function verifyUserLogin(user,password){
 
   if(userAuth){
 
-    if (userAuth || bcrypt.compareSync(userLog.password, userAuth.password)) {
+    if (userAuth && bcrypt.compareSync(userLog.password, userAuth.password)) {
 
       token = jwt.sign({id:userAuth.id_user,username:userAuth.user,type:'user'},config.secret,{ expiresIn: '2h'})
       return {status:'ok',data:token}
       
     } else {
-      return {status:'error',error:'invalid password'}
+      return {status:'401',error:'invalid password'}
     }  
     
   }else{
-    res.status(401).json({ error: "Usuário não existe" });
-    return false;
+    return {status:'499',error:'Usuário não existe'}
   }
 }
 
@@ -78,10 +78,10 @@ async function login(req, res){
 
   if(response.status==='ok'){
     res.cookie('token',token,{ maxAge: 2 * 60 * 60 * 1000, httpOnly: true });  // maxAge: 2 hours
-    res.status(200).send({message: "Autenticado", data: response});
+    res.status(200).send({message: "Autenticado", data: response, logado: true});
 
   }else{
-    res.status(401).send("Não autorizado")
+    res.status(401).send({message: "Não Autenticado", data: response, logado: false})
     res.json(response);
 
   }
@@ -99,7 +99,6 @@ async function verifyToken(token){
       return false;
   }
 }
-
 
 
 module.exports =  {authenticate, verifyUserLogin, login, verifyToken};

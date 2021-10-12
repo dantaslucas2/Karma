@@ -26,5 +26,6 @@ routes.post("/api/contract/:id", contracts.updateContract);
 routes.delete("/api/contract/:id", contracts.deleteContract);
 
 routes.post("/api/login", authenticate.login);
+routes.post("/api/login/auth", authenticate.verifyToken);
 
 module.exports = routes;

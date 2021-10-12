@@ -1,7 +1,7 @@
 ﻿import {Route, Switch} from "react-router-dom";
 import Home from "./Views/Home/Home";
 import Feed from "./Views/Feed/Feed";
-import Login from "./Views/Login/Login";
+import Login from "./Views/Login/Login.js";
 import Register from "./Views/Register/Register";
 import Card from "./Views/Card/Card";
 import NewCard from "./Views/NewCard/NewCard";

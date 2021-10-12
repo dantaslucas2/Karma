@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const connection = require("./database/database");
 const routes = require("./routes/routes")
 var cookieParser = require('cookie-parser');
-var corsOptions = {origin: "http://localhost:4001"};
-var cors = require('cors')
+//var corsOptions = {origin: "http://localhost:4000"};
+//var cors = require('cors')
 const PORT = process.env.PORT || 4000;
 
 connection
@@ -18,7 +18,7 @@ connection
   });
 
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
