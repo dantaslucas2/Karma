@@ -1,4 +1,5 @@
 ﻿import React, {Component, useState} from 'react';
+import { Redirect } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
 import LoginForm from '../../Components/LoginForm/LoginForm';
 import LoginController from "../../API/LoginController";
@@ -26,19 +27,31 @@ class Login extends Component {
     }; 
   }
 
+
   verificaLoginUser(LogUser) {
-    LoginController.postLoginUser({NewLogin: LogUser}).then(res => {
+    LoginController.postLoginUser(LogUser).then(res => {
+      console.log(res)
       this.setState(prevState=> {
-          prevState.isAuthenticated = res.logado;
+          prevState.isAuthenticated = res.data.logado;
           return prevState}
       )
-    }) 
+    })
+  }
+
+  redirectFeed() {
+
   }
 
   handleSubmit(event) {
-    console.log(this.state.formLogin)
-    this.verificaLoginUser(this.state.formLogin)
-    event.preventDefault();    
+
+    this.verificaLoginUser(this.state.formLogin).then(e=>{
+      console.log(this.state.isAuthenticated)
+      //event.preventDefault();
+      if(this.state.isAuthenticated===true){
+        return (<Redirect to='/feed'/>)
+      }
+    })
+
   }
 
   
