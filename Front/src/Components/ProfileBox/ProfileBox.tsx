@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import './ProfileBox.css';
+import '../DetailedCard/DetailedCard.css';
 import "@fontsource/lato";
 
 class ProfileBox extends Component {

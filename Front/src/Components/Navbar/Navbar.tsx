@@ -43,7 +43,7 @@ class Navbar extends Component<{}, { click: boolean, button: boolean}> {
               
               <ul className={this.state.click ? 'nav-menu active': 'nav-menu'}>
                 <li className='nav-btn'>
-                  <Link to='/perfil' className='nav-link'>
+                  <Link to='/profile' className='nav-link'>
                     <IoPersonCircleSharp />
                   </Link>
                 </li>

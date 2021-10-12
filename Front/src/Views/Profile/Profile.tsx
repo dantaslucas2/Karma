@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import ProfileBox from '../../Components/ProfileBox/ProfileBox';
+import UserCards from '../../Components/UserCards/UserCards';
 
 import './Profile.css';
 import '../../Components/Container/Container.css';
@@ -14,6 +15,7 @@ class Profile extends Component {
         <div className="Profile">
           <div className="Container">
             <ProfileBox />
+            <UserCards />
           </div>
         </div>
       </>
