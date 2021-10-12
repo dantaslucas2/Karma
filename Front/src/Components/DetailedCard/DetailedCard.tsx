@@ -27,8 +27,15 @@ class DetailedCard extends Component {
             </div>
           </div>
           <div className="Metadata">
-            <p>Data de criação</p>
-            <p>Tags</p>
+            <div className="CreationTime">
+              <p>Data de criação</p>
+            </div>
+            <div className="Tags">
+              <p>Tags</p>
+            </div>
+            <div className="Owner">
+              <p>Criado por</p>
+            </div>
           </div>
         </div>
       </div>

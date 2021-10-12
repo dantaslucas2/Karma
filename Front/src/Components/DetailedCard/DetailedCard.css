@@ -1,5 +1,4 @@
-.DetailedCard {
-}
+.DetailedCard { }
 
 .DetailedCard .Header {
   height: 10em;
@@ -79,13 +78,14 @@
   
   .DetailedCard .Body {
     font-family: "Lato";
-    display: flex;
-    margin-left: 1em;
+    display: inline-block;
+    margin-left: 0em;
   }
   
   .DetailedCard .Body .Description {
-    flex: 1;
-    width: 70%;
+    flex: none;
+    width: auto;
+    margin-left: 1em;
   }
   
   .DetailedCard .Body .Description .DescriptionTitle {
@@ -103,7 +103,7 @@
   }
   
   .DetailedCard .Body .Metadata {
-    width: 30%;
+    width: 100%;
     background: rgb(220, 220, 220);
     
   }
