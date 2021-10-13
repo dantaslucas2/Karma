@@ -7,6 +7,9 @@ const ServiceController = {
     getlistService() {
         return axios.get("http://localhost:4000/api/services");
     },
+    getlistServiceGroupBy() {
+        return axios.get("http://localhost:4000/api/servicesgroupby");
+    },
     getindexService(idService) {
         return axios.get(`http://localhost:4000/api/user/${idService}`);
     },    

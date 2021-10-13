@@ -57,7 +57,7 @@ async function verifyUserLogin(user,password){
     if (userAuth && bcrypt.compareSync(userLog.password, userAuth.password)) {
 
       token = jwt.sign({id:userAuth.id_user,username:userAuth.user,type:'user'},config.secret,{ expiresIn: '2h'})
-      return {status:'ok',data:token}
+      return {status:'ok',data:token, idUser:userAuth.id_user}
       
     } else {
       return {status:'401',error:'invalid password'}
@@ -87,18 +87,4 @@ async function login(req, res){
   }
 }
 
-
-async function verifyToken(token){
-
-  try {
-      const verify = jwt.verify(token,config.secret);
-      if(verify.type==='user'){return true;}
-      else{return false};
-  } catch (error) {
-      console.log(JSON.stringify(error),"error");
-      return false;
-  }
-}
-
-
-module.exports =  {authenticate, verifyUserLogin, login, verifyToken};
+module.exports =  {authenticate, verifyUserLogin, login};

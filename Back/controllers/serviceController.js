@@ -28,7 +28,8 @@ async function createServices(req, res){
   ) {
     res.sendStatus(400);
   } else {
-    Services.create({
+
+    new_service = {
       title: title,
       tag: tag,
       points: points,
@@ -39,9 +40,12 @@ async function createServices(req, res){
       id_owner: id_owner,
       createdAt: data,
       updatedAt: data,
-    })
+    }
+
+    Services.create(new_service)
       .then(() => {
-        res.sendStatus(200);
+        console.log(new_service)
+        res.status(200).send({message:"Card criado com sucesso", card:new_service});
       })
       .catch(() => {
         res.sendStatus(500);
@@ -54,6 +58,14 @@ async function listServices(req, res){
     res.json(services);
   });
   res.statusCode = 200;
+}
+
+async function listServicesGroupBy(req, res){
+  Services.findAll({ raw: true, 
+    group: ['category']
+    }).then((services) => {
+    res.status(200).send(services);
+  });
 }
 
 async function indexService(req, res){
@@ -146,4 +158,4 @@ async function deleteService(req, res) {
   }
 }
 
-module.exports =  {createServices, listServices, indexService, tagsService, updateService, deleteService };
+module.exports =  {createServices, listServices, listServicesGroupBy, indexService, tagsService, updateService, deleteService };

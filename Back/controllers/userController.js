@@ -1,4 +1,5 @@
 const Users = require("../database/models/Users");
+const Cards = require("../database/models/Services")
 const bcrypt = require('bcryptjs');
 
 
@@ -93,6 +94,31 @@ async function indexUser(req, res){
   }
 }
 
+async function indexUsercard(req, res){
+
+  var userId = req.params.id;
+
+  if (userId == undefined) {
+    res.sendStatus(400);
+  
+  }else {
+    
+    Cards.findAll({
+      where: {
+        id_owner: userId
+      },
+    }).then((resposta) => {
+      if (resposta != undefined) {
+        res.json(resposta);
+        res.sendStatus(200);
+      }else {
+        res.sendStatus(404);
+      }
+    });
+  }
+}
+
+
 async function updateUser(req, res) {
 
   var userId = req.params.id;
@@ -135,4 +161,4 @@ async function deleteUser(req, res) {
   }
 }
 
-module.exports =  {createUsers, listUsers, indexUser, updateUser, deleteUser };
+module.exports =  {createUsers, listUsers, indexUser, indexUsercard, updateUser, deleteUser };

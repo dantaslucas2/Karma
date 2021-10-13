@@ -2,9 +2,10 @@ import { Component }from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from "react-icons";
-import { IoPersonCircleSharp } from "react-icons/io5";
+import { IoAddCircle, IoAddCircleOutline, IoLogOut, IoPersonCircleSharp } from "react-icons/io5";
 import logo from '../../Assets/images/logo.png';
 import './Navbar.css';
+import Logg from '../../API/Utils'
 
 class Navbar extends Component<{}, { click: boolean, button: boolean}> {
 
@@ -43,8 +44,14 @@ class Navbar extends Component<{}, { click: boolean, button: boolean}> {
               
               <ul className={this.state.click ? 'nav-menu active': 'nav-menu'}>
                 <li className='nav-btn'>
+                <Link to='/new-card' className='nav-link'>
+                    <IoAddCircleOutline/>
+                  </Link>
                   <Link to='/profile' className='nav-link'>
                     <IoPersonCircleSharp />
+                  </Link>
+                  <Link to='/login'  onClick={Logg.logout} className='nav-link'>
+                    <IoLogOut />
                   </Link>
                 </li>
               </ul>

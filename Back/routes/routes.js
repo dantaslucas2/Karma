@@ -8,11 +8,13 @@ const routes = express.Router();
 
 routes.get("/api/users", users.listUsers);
 routes.get("/api/user/:id", users.indexUser);
+routes.get("/api/user/:id/cards", users.indexUsercard);
 routes.post("/api/user", users.createUsers);
 routes.post("/api/user/:id", users.updateUser);
 routes.delete("/api/user/:id", users.deleteUser);
 
 routes.get("/api/services", services.listServices);
+routes.get("/api/servicesgroupby", services.listServicesGroupBy);
 routes.get("/api/service/:id", services.indexService);
 routes.get("/api/service/tag/:id", services.tagsService);
 routes.post("/api/service", services.createServices);
@@ -26,6 +28,5 @@ routes.post("/api/contract/:id", contracts.updateContract);
 routes.delete("/api/contract/:id", contracts.deleteContract);
 
 routes.post("/api/login", authenticate.login);
-routes.post("/api/login/auth", authenticate.verifyToken);
 
 module.exports = routes;

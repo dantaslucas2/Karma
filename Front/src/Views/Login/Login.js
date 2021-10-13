@@ -1,13 +1,10 @@
-﻿import React, {Component, useState} from 'react';
+﻿import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
-import LoginForm from '../../Components/LoginForm/LoginForm';
 import LoginController from "../../API/LoginController";
 import TextField from '@material-ui/core/TextField';
-import { Email } from '@material-ui/icons';
 import './Login.css';
 import '../../Components/Container/Container.css';
-import "@fontsource/lato";
 import "@fontsource/lato";
 // @ts-nocheck
 
@@ -19,7 +16,9 @@ class Login extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
+      idToken:"",
+      token:"",
       isAuthenticated: false,
       formLogin:{
         user:"", 
@@ -32,26 +31,18 @@ class Login extends Component {
     LoginController.postLoginUser(LogUser).then(res => {
       console.log(res)
       this.setState(prevState=> {
+          console.log(res)
           prevState.isAuthenticated = res.data.logado;
+          prevState.token = res.data.data.data;
+          prevState.idToken = res.data.data.idUser;
           return prevState}
       )
     })
   }
 
-  redirectFeed() {
-
-  }
-
   handleSubmit(event) {
-
-    this.verificaLoginUser(this.state.formLogin).then(e=>{
-      console.log(this.state.isAuthenticated)
-      //event.preventDefault();
-      if(this.state.isAuthenticated===true){
-        return (<Redirect to='/feed'/>)
-      }
-    })
-
+    event.preventDefault();
+    this.verificaLoginUser(this.state.formLogin)
   }
 
   
@@ -65,6 +56,11 @@ class Login extends Component {
   }
 
   render(){
+    if(this.state.token!==null && this.state.token!==""){
+      localStorage.setItem("token", this.state.token)
+      localStorage.setItem("id_user", this.state.idToken)
+      return <Redirect to="/feed" />
+    }
     return (
       <>
         <Navbar />
@@ -74,7 +70,7 @@ class Login extends Component {
 
               <div className="LoginForm">
               <p className="LoginFormTitle">Login</p>
-                <form className="Form" noValidate autoComplete="off" onSubmit={(e)=>{this.handleSubmit(e)}}>
+                <form className="Form" noValidate autoComplete="off" onSubmit={(e)=>this.handleSubmit(e)}>
                   <TextField sx={formElementStyle} id="outlined-basic" label="Email" variant="outlined" onChange={(e) => {this.writeForm(e.target.value, "user")}}/>
                   <TextField sx={formElementStyle} id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined" onChange={(e) => {this.writeForm(e.target.value, "password")}}/>
                   <div className="OtherOptions">

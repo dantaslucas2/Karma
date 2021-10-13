@@ -1,22 +1,22 @@
 ﻿import {Route, Switch} from "react-router-dom";
 import Home from "./Views/Home/Home";
-import Feed from "./Views/Feed/Feed";
+import Feed from "./Views/Feed/Feed.js";
 import Login from "./Views/Login/Login.js";
-import Register from "./Views/Register/Register";
+import Register from "./Views/Register/Register.js";
 import Card from "./Views/Card/Card";
-import NewCard from "./Views/NewCard/NewCard";
-import Profile from "./Views/Profile/Profile";
+import NewCard from "./Views/NewCard/NewCard.js";
+import Profile from "./Views/Profile/Profile.js";
 
 const MainRouter = () => (
     <div>
         <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route exact path="/feed" component={Feed}></Route>
-            <Route exact path="/login" component={Login}></Route>
-            <Route exact path="/register" component={Register}></Route>
-            <Route exact path="/card" component={Card}></Route>
-            <Route exact path="/new-card" component={NewCard}></Route>
-            <Route exact path="/profile" component={Profile}></Route>
+                <Route exact path="/" component={Home}></Route>
+                <Route exact path="/feed" component={Feed}></Route>
+                <Route exact path="/login" component={Login}></Route>
+                <Route exact path="/register" component={Register}></Route>
+                <Route exact path="/card" component={Card}></Route>
+                <Route exact path="/new-card" component={NewCard}></Route>
+                <Route exact path="/profile" component={Profile}></Route> 
             {/*
             <PrivateRoute exact path="/admin" component={Admin} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
@@ -32,6 +32,7 @@ const MainRouter = () => (
             <PrivateRoute exact path="/post/edit/:postId" component={EditPost}></PrivateRoute>
             */}
         </Switch>
+
     </div>
 );
 

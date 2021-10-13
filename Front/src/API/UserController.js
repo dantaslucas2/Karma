@@ -9,6 +9,9 @@ const UserController = {
     },
     getindexUser(idUser) {
         return axios.get(`http://localhost:4000/api/user/${idUser}`);
+    },      
+    getCardsindexUser(idUser) {
+        return axios.get(`http://localhost:4000/api/user/${idUser}/cards`);
     },    
     postcreateUser(NewUser){
         return axios.post("http://localhost:4000/api/user", NewUser);
