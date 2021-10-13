@@ -6,15 +6,17 @@ import './Section.css';
 class Section extends Component<IPropSection> {
 
   render() {
-    const category = this.props
-    const cards = category.cards.map((card : IPropCard) => <li><Card {...card}/></li>)
-
+    const categorye = this.props
+    console.log(categorye)
+    const category = {title:"Cards",cards:categorye['0']}
+    const ready = category.cards != undefined
+    console.log("ready",ready,category.cards)
     return (
       <div className="Section">
         <div className="SectionTitle">
           <p>{category.title}</p>
         </div>
-        <Car {...category} />
+        {ready ? <Car {...category} /> : <p>ainda n</p>}
       </div>
     );
   }

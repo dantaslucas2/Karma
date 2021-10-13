@@ -4,6 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
+
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -24,7 +26,6 @@ const compressMaxLength = (description: string) => {
 export default function RecipeReviewCard(props: IPropCard) {
 
   const card = props
-
   return (
     <div className='CardMaterial'>
       <Card sx={{ width: 270, maxHeight: 260 }} >
@@ -40,7 +41,6 @@ export default function RecipeReviewCard(props: IPropCard) {
             </IconButton>
           }
           title={card.title}
-          subheader={card.creationDate.toLocaleString("pt-BR")}
         />
       
         <CardContent sx={{maxHeight: 100, height: 100}}>
@@ -55,9 +55,9 @@ export default function RecipeReviewCard(props: IPropCard) {
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
-          <IconButton aria-label="see more">
+          <IconButton component={Link} aria-label="see more" to={"/card/"+ card.id_service}>
             <AddIcon />
-          </IconButton>
+            </IconButton>
         </CardActions>
       </Card>
     </div>

@@ -11,7 +11,7 @@ const ServiceController = {
         return axios.get("http://localhost:4000/api/servicesgroupby");
     },
     getindexService(idService) {
-        return axios.get(`http://localhost:4000/api/user/${idService}`);
+        return axios.get(`http://localhost:4000/api/service/${idService}`);
     },    
     postcreateService(NewService){
         return axios.post("http://localhost:4000/api/service", NewService);

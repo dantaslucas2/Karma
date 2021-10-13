@@ -26,6 +26,7 @@ routes.get("/api/contract/:id", contracts.indexContract);
 routes.post("/api/contract", contracts.createContracts);
 routes.post("/api/contract/:id", contracts.updateContract);
 routes.delete("/api/contract/:id", contracts.deleteContract);
+routes.get("/api/myservices/:id", contracts.listMyContracts);
 
 routes.post("/api/login", authenticate.login);
 

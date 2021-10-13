@@ -18,6 +18,9 @@ const ContractController = {
     },
     deleteContract(idContract){
         return axios.delete(`http://localhost:4000/api/user/${idContract}`);
+    },
+    getMyContract(idUser){
+        return axios.get(`http://localhost:4000/api/myservices/${idUser}`);
     }
 };
 

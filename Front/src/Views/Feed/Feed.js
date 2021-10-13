@@ -34,11 +34,10 @@ class Feed extends Component {
   }
   
   render() {
-
-    console.log(this.state.asset)
     //const Sections = () => this.state?.asset?.map((category) => <Section {...category} />)
     //const Sections: any = () => MockCategories.map((category: IPropSection) => <Section {...category} />)
-    const Sections = () => MockCategories.map((category) => <Section {...category} />)
+    console.log("ee",this.state.asset)
+    const Sections = () => <Section {...this.state.asset} />
     if(!logg.isLoggeIn()){
       return <Redirect to="/login" />
     }
