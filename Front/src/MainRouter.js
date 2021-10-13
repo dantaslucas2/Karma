@@ -6,17 +6,20 @@ import Register from "./Views/Register/Register.js";
 import Card from "./Views/Card/Card";
 import NewCard from "./Views/NewCard/NewCard.js";
 import Profile from "./Views/Profile/Profile.js";
-
+import MyCards from './Views/MyCards/MyCards';
+import RegisteredUsers from './Views/RegisteredUsers/RegisteredUsers';
 const MainRouter = () => (
     <div>
         <Switch>
-                <Route exact path="/" component={Home}></Route>
-                <Route exact path="/feed" component={Feed}></Route>
-                <Route exact path="/login" component={Login}></Route>
-                <Route exact path="/register" component={Register}></Route>
-                <Route exact path="/card" component={Card}></Route>
-                <Route exact path="/new-card" component={NewCard}></Route>
-                <Route exact path="/profile" component={Profile}></Route> 
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/feed" component={Feed}></Route>
+            <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/register" component={Register}></Route>
+            <Route exact path="/card" component={Card}></Route>
+            <Route exact path="/new-card" component={NewCard}></Route>
+            <Route exact path="/profile" component={Profile}></Route>
+            <Route exact path="/my-cards" component={MyCards}></Route>
+            <Route exact path="/registered-users/:id" component={RegisteredUsers}></Route>
             {/*
             <PrivateRoute exact path="/admin" component={Admin} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
