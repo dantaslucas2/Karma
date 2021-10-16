@@ -52,6 +52,4 @@ Users.hasMany(service, {
   allowNull: false,
 });
 
-service.sync({ force: true }).then(() => console.log("Tabela Services criada"));
-
 module.exports = service;

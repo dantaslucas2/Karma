@@ -49,8 +49,4 @@ Services.hasMany(contract, {
   allowNull: false,
 });
 
-contract
-  .sync({ force: true })
-  .then(() => console.log("Tabela Contracts criada"));
-
 module.exports = contract;

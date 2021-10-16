@@ -23,8 +23,5 @@ Services.hasMany(tags_services, {
   allowNull: false,
 });
 
-tags_services
-  .sync({ force: true })
-  .then(() => console.log("Tabela tags_services criada"));
 
 module.exports = tags_services;

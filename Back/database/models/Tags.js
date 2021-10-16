@@ -14,6 +14,4 @@ const tags = connection.define("Tags", {
   },
 });
 
-tags.sync({ force: true }).then(() => console.log("Tabela tags criada"));
-
 module.exports = tags;
