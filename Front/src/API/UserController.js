@@ -2,7 +2,6 @@
 
 //Conexão com API do UserController no back
 
-
 const UserController = {
     getlistUser() {
         return axios.get("http://localhost:4000/api/users");

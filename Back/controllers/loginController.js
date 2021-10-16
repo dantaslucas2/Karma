@@ -68,22 +68,19 @@ async function verifyUserLogin(user,password){
   }
 }
 
-async function login(req, res){
+async function login(req, res) {
 
-  const {user,password}=req.body;
+  const { user, password } = req.body;
 
-  const response = await verifyUserLogin(user,password);
+  const response = await verifyUserLogin(user, password);
   const token = response.data
 
-
-  if(response.status==='ok'){
-    res.cookie('token',token,{ maxAge: 2 * 60 * 60 * 1000, httpOnly: true });  // maxAge: 2 hours
+  if (response.status === 'ok') {
+    res.cookie('token',token,{ maxAge: 2 * 60 * 60 * 1000, httpOnly: true }); // maxAge: 2 hours
     res.status(200).send({message: "Autenticado", data: response, logado: true});
-
-  }else{
+  } else {
     res.status(401).send({message: "Não Autenticado", data: response, logado: false})
     res.json(response);
-
   }
 }
 

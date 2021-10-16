@@ -2,7 +2,6 @@
 
 //Conexão com API do ServiceController no back
 
-
 const ServiceController = {
     getlistService() {
         return axios.get("http://localhost:4000/api/services");

@@ -2,12 +2,12 @@ import { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import Section from '../../Components/Section/Section';
 import Navbar from '../../Components/Navbar/Navbar';
-import { MockCategories } from '../../data/Mock';
-import logg from '../../API/Utils.js'
+import Services from '../../API/ServiceController'
+import UserSessionManagement from '../../API/Utils.js'
+
 import './Feed.css';
 import '../../Components/Container/Container.css'
 import "@fontsource/lato"
-import Services from '../../API/ServiceController'
 
 class Feed extends Component {
 
@@ -24,9 +24,7 @@ class Feed extends Component {
 
   ListService() {
     Services.getlistService().then(res => {
-      console.log(res)
-      console.log("entrei")
-      this.setState(prevState=> {
+      this.setState(prevState => {
           prevState.asset = [res.data];
           return prevState}
       )
@@ -34,13 +32,12 @@ class Feed extends Component {
   }
   
   render() {
-    //const Sections = () => this.state?.asset?.map((category) => <Section {...category} />)
-    //const Sections: any = () => MockCategories.map((category: IPropSection) => <Section {...category} />)
-    console.log("ee",this.state.asset)
-    const Sections = () => <Section {...this.state.asset} />
-    if(!logg.isLoggeIn()){
+    if(!UserSessionManagement.isLoggedIn()){
       return <Redirect to="/login" />
     }
+    
+    const Sections = () => <Section {...this.state.asset} />
+    
     return (
       <>
         <Navbar />

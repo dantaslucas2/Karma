@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
 import ProfileBox from '../../Components/ProfileBox/ProfileBox';
-import logg from '../../API/Utils.js'
+import UserSessionManagement from '../../API/Utils.js'
 import './Profile.css';
 import '../../Components/Container/Container.css';
 import "@fontsource/lato";
@@ -40,7 +40,7 @@ class Profile extends Component {
   }
 
   render(){
-    if(!logg.isLoggeIn()){
+    if(!UserSessionManagement.isLoggedIn()){
       return <Redirect to="/login" />
     }
     return (

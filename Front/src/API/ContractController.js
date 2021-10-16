@@ -2,7 +2,6 @@
 
 //Conexão com API do ContractController no back
 
-
 const ContractController = {
     getlistContract() {
         return axios.get("http://localhost:4000/api/contracts");

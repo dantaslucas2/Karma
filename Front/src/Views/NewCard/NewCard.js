@@ -1,19 +1,17 @@
 import { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar';
 import TextField from '@material-ui/core/TextField';
-import { Redirect } from 'react-router-dom'
+import ServiceController from "../../API/ServiceController";
+import UserSessionManagement from '../../API/Utils.js'
+
 import './NewCard.css';
 import '../../Components/Container/Container.css';
 import "@fontsource/lato";
-import  ServiceController from "../../API/ServiceController";
-import logg from '../../API/Utils.js'
-
 
 const formElementStyle = {
   margin: '15px 0px 0px 0px'
 }
-
-
 
 class Register extends Component {
 
@@ -34,22 +32,16 @@ class Register extends Component {
     }; 
   }
 
-
   componentDidMount(){
-    this.getAuth()
-  }
-
-  getAuth(){
     const id_user = parseInt(localStorage.getItem('id_user'))
-    this.setState(prevState=> {
+    this.setState(prevState => {
         prevState.formCard.id_owner = id_user;
-        return prevState}) 
+        return prevState
+    })
   }
 
   createNewCard(LogUser){
-    console.log("entrei")
-    console.log(LogUser)
-    ServiceController.postcreateService(LogUser).then(res => {
+    ServiceController.postcreateService(LogUser).then((res) => {
       this.setState(prevState=> {
         prevState.isFinished = true;
         return prevState}
@@ -58,7 +50,7 @@ class Register extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();   
+    event.preventDefault();
     this.createNewCard(this.state.formCard)
   }
 
@@ -72,12 +64,14 @@ class Register extends Component {
   }
 
   render(){
-    if(!logg.isLoggeIn()){
+    if(!UserSessionManagement.isLoggedIn()){
       return <Redirect to="/login" />
     }
+
     if(this.state.isFinished){
       return <Redirect to="/feed" />
     }
+
     return (
       <>
         <Navbar />

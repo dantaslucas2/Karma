@@ -12,9 +12,8 @@
   text-align: center;
   width: auto;
   height: auto;
-  background: rgb(73,125,131);
-  background: linear-gradient(0deg, rgba(73,125,131,1) 0%, rgba(51,62,99,1) 100%);
-  display: block;
+  background: rgb(28,34,55);
+  background: linear-gradient(355deg, rgba(28,34,55,1) 0%, rgba(55,74,139,1) 100%);display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center

@@ -1,20 +1,20 @@
-﻿const logg = {
+﻿const UserSessionManagement = {
 
-    isLoggeIn(){
-        if(localStorage.getItem('token'))
-        return true
-        else{return false}
-    },
+  isLoggedIn() { 
+    return localStorage.getItem('token') ? true : false
+  },
 
-    idLoggin(){
-        return localStorage.getItem('id_user')
-    },
+  logout() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('id_user')
+      window.location.reload()
+  },
 
-    logout(){
-        localStorage.removeItem('token')
-        localStorage.removeItem('id_user')
-        window.location.reload()
-    }
+  setSession(token, idUser) {
+    localStorage.setItem('token', token)
+    localStorage.setItem('id_user', idUser)
+
+  }
 }
 
-export default logg;
+export default UserSessionManagement;

@@ -1,11 +1,17 @@
 ﻿import { Component } from 'react';
-import Navbar from '../../Components/Navbar/Navbar';
 import { Redirect } from 'react-router-dom'
-import './Register.css';
-import '../../Components/Container/Container.css';
+import Navbar from '../../Components/Navbar/Navbar';
 import TextField from '@material-ui/core/TextField';
+import UserController from "../../API/UserController";
+import UserSessionManagement from '../../API/Utils.js'
+
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
+
+import './Register.css';
 import "@fontsource/lato";
-import  UserController from "../../API/UserController";
+import '../../Components/Container/Container.css';
 
 const formElementStyle = {
   margin: '15px 0px 0px 0px'
@@ -16,11 +22,11 @@ class Register extends Component {
     super(props);
     this.state = { 
       formUser:{
-        name:"",
-        email:"",
-        points:0,
-        institution:"",
-        password:"",
+        name: "",
+        email: "",
+        points: 0,
+        institution: "",
+        password: "",
         user: ""
       },
       isFinished: false
@@ -28,18 +34,29 @@ class Register extends Component {
   }
 
   createNewUser(LogUser) {
-    console.log("entrei")
-    console.log(LogUser)
-    UserController.postcreateUser(LogUser).then(res => {
+    UserController.postcreateUser(LogUser).then((res) => {
       this.setState(prevState=> {
         prevState.isFinished = true;
+        store.addNotification({
+          title: "Usuário criado com sucesso",
+          message: "Agora faça login!",
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true
+          }
+        });
         return prevState}
       )
     })
   }
 
   handleSubmit(event) {
-    event.preventDefault();    
+    event.preventDefault();
     this.createNewUser(this.state.formUser)
   }
 
@@ -47,15 +64,20 @@ class Register extends Component {
     this.setState(prevState => {
         if (value !== "") {
           prevState.formUser[label] = value
-        }     
+        }
         return prevState;
     })
   }
 
   render(){
+    if (UserSessionManagement.isLoggedIn()) {
+      return <Redirect to="/feed" />
+    }
+
     if(this.state.isFinished){
       return <Redirect to="/login" />
     }
+
     return (
       <>
         <Navbar />
