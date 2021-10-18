@@ -25,7 +25,7 @@ class Home extends Component<any,any>{
       {
         title: "Dou aulas de Python",
         description:
-          "Estou cursando o sétimo período de Engenharia da Computação na UFRJ e estou disposto a ajudar os calouros ou ouros estudantes que queiram aprender o básico da linguagem de programação Python.",
+          "Estou cursando o sétimo período de Engenharia da Computação na UFRJ e estou disposta a ajudar os calouros ou ouros estudantes que queiram aprender o básico da linguagem de programação Python.",
         button: "Quero participar!",
         image: "https://programadoresbrasil.com.br/wp-content/uploads/2019/10/0_fUJ-vxQtDB0ssLX7-1024x684.jpeg",
         user: "Amanda Lúcio",
