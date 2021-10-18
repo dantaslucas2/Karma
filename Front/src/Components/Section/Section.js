@@ -14,7 +14,7 @@ class Section extends Component {
         <div className="SectionTitle">
           <p>{category.title}</p>
         </div>
-        {ready ? <Car {...category} /> : <p>ainda n</p>}
+        {ready ? <Car {...category} /> : <p>Loading...</p>}
       </div>
     );
   }

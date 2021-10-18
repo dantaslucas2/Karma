@@ -6,7 +6,6 @@ import User from '../../API/UserController';
 import './Card.css';
 import '../../Components/Container/Container.css';
 import "@fontsource/lato";
-import moment from 'moment';
 
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
