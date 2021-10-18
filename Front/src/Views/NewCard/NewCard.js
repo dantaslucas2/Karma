@@ -5,6 +5,10 @@ import TextField from '@material-ui/core/TextField';
 import ServiceController from "../../API/ServiceController";
 import UserSessionManagement from '../../API/Utils.js'
 
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
+
 import './NewCard.css';
 import '../../Components/Container/Container.css';
 import "@fontsource/lato";
@@ -12,6 +16,25 @@ import "@fontsource/lato";
 const formElementStyle = {
   margin: '15px 0px 0px 0px'
 }
+
+const currencies = [
+  {
+    value: '1',
+    label: 'Programação',
+  },
+  {
+    value: '2',
+    label: 'Disciplinas da Faculdade',
+  },
+  {
+    value: '3',
+    label: 'Língua Estrangeira',
+  },
+  {
+    value: '4',
+    label: 'Outros',
+  },
+];
 
 class Register extends Component {
 
@@ -22,7 +45,7 @@ class Register extends Component {
         title: "",
         tag:2,
         points: 50,
-        category:"",
+        category: 0,
         description:"",
         status:0,
         type_service:"generico",
@@ -40,10 +63,23 @@ class Register extends Component {
     })
   }
 
-  createNewCard(LogUser){
-    ServiceController.postcreateService(LogUser).then((res) => {
+  createNewCard(NewCard){
+    ServiceController.postcreateService(NewCard).then((res) => {
       this.setState(prevState=> {
         prevState.isFinished = true;
+        store.addNotification({
+          title: "Card criado com sucesso",
+          message: "Agora divulgue para seus amigos!",
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true
+          }
+        });
         return prevState}
       )
     })
@@ -58,7 +94,7 @@ class Register extends Component {
     this.setState(prevState => {
         if (value !== "") {
           prevState.formCard[label] = value
-        }     
+        }
         return prevState;
     })
   }
@@ -89,7 +125,24 @@ class Register extends Component {
                   label="Descrição"
                   rows={4}
                   onChange={(e) => {this.writeForm(e.target.value, "description")}}/>
-                <TextField sx={formElementStyle} id="newcard-form-category" label="Categoria" variant="outlined" onChange={(e) => {this.writeForm(e.target.value, "category")}}/>
+                 <TextField
+                  sx={formElementStyle}
+                  id="newcard-form-category"
+                  select
+                  label="Categoria"
+                  value={this.state.category}
+                  SelectProps={{
+                    native: true,
+                  }}
+                  variant="outlined"
+                  onChange={(e) => {this.writeForm(e.target.value, "category")}}
+                >
+                  {currencies.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </TextField>
                 <button className="RegisterButton" style={formElementStyle} type="submit">
                   Registrar!
                 </button>

@@ -118,11 +118,6 @@ async function deleteContract(req, res) {
 
 async function listMyContracts(req, res) {
   var userId = req.params.id;
-  console.log("usdr",userId)
-
-  // Contracts.findAll({ raw: true }).then((contracts) => {
-  //   res.json(contracts);
-  // });
   Contracts.findAll({
    where: {
      id_request: userId
@@ -142,18 +137,5 @@ async function listMyContracts(req, res) {
       }
     })
  })
-  /*Contracts.findAll({
-    where: {
-      id_request: userId
-    },
-  }).then((resposta) => {
-    console.log("olha ai meus contratos",resposta)
-    if (resposta != undefined) {
-      res.json(resposta);
-      res.sendStatus(200);
-    }else {
-      res.sendStatus(404);
-    }
-  });*/
 }
 module.exports =  {createContracts, listContracts, indexContract, updateContract, deleteContract, listMyContracts};

@@ -33,7 +33,6 @@ class Login extends Component {
 
   verificaLoginUser(LogUser) {
     LoginController.postLoginUser(LogUser).then(res => {
-      console.log("ai ow",res)
       this.setState(prevState => {
         prevState.isAuthenticated = res.data.logado;
         prevState.token = res.data.data.data;

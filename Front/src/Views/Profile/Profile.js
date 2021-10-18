@@ -7,7 +7,7 @@ import './Profile.css';
 import '../../Components/Container/Container.css';
 import "@fontsource/lato";
 import User from '../../API/UserController'
-import Section from '../../Components/Section/Section';
+import Section from '../../Components/Section/Section.js';
 import { MockUserCards } from '../../data/Mock';
 
 class Profile extends Component {

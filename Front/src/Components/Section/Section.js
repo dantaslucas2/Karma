@@ -1,16 +1,14 @@
 import { Component } from 'react';
-import Card from '../Card/Card';
-import Car from '../../Components/Carousel/Carousel'
+import Car from '../Carousel/Carousel'
 import './Section.css';
 
-class Section extends Component<IPropSection> {
+class Section extends Component {
 
   render() {
+    console.log("ai",this.props)
     const categorye = this.props
-    console.log(categorye)
-    const category = {title:"Cards",cards:categorye['0']}
+    const category = { title: "Cards", cards:categorye['0']}
     const ready = category.cards != undefined
-    console.log("ready",ready,category.cards)
     return (
       <div className="Section">
         <div className="SectionTitle">

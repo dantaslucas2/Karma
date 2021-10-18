@@ -51,9 +51,9 @@ class Navbar extends Component<{}, INavBarState> {
             </Link>
           </li>
           <li className='nav-btn'>
-            <Link to='/profile' className='nav-link'>
+            <Link to='/my-cards' className='nav-link'>
               { this.state.click ? <IoPersonCircleSharp /> : null }
-              <span>Meu Perfil</span>
+              <span>Minhas Inscrições</span>
             </Link>
           </li>
           <li className='nav-btn'>

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import Section from '../../Components/Section/Section';
+import Section from '../../Components/Section/Section.js';
 import { MockUserCards } from '../../data/Mock';
 
 import './UserCards.css';

@@ -7,6 +7,7 @@ const UserController = {
         return axios.get("http://localhost:4000/api/users");
     },
     getindexUser(idUser) {
+        console.log("owqeurecebi",idUser)
         return axios.get(`http://localhost:4000/api/user/${idUser}`);
     },      
     getCardsindexUser(idUser) {

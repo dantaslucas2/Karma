@@ -7,7 +7,6 @@ class DetailedCard extends Component<any,any> {
 
   render() {
     const card = this.props;
-    console.log("owcard",card)
     return (
       <div className="DetailedCard">
         <div className="Header">
@@ -29,7 +28,7 @@ class DetailedCard extends Component<any,any> {
           </div>
           <div className="Metadata">
             <div className="CreationTime">
-              <p>Data de criação</p>
+              <p>Data de criação: {card.createdAt}</p>
             </div>
             <div className="Tags">
               <p>Tags</p>

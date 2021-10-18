@@ -44,8 +44,11 @@
 }
 
 .DetailedCard .Body .Metadata {
+  color: white;
+  font-family: Lato;
+  font-size: 1.4em;
   width: 30%;
-  background: rgb(220, 220, 220);
+  background: rgb(231, 164, 62);
   
 }
 
